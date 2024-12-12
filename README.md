@@ -11,3 +11,12 @@
 <img src ="https://github.com/PyvesB/advanced-achievements/blob/master/images/walking-dead-screenshot.png?raw=true" />
 <br/>
 </p>
+
+New Updated Version
+https://www.spigotmc.org/resources/advanced-achievements-updated.119689/
+
+### - Added support for 1.20+ MC versions.
+### - Added Java 21 requirement.
+### - Updated all dependencies and libraries to 2024 versions.
+### - Fixed and replaced deprecated methods.
+### - Improved potion handling and recognition.
