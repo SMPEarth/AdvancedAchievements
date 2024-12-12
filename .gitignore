@@ -171,3 +171,14 @@ $RECYCLE.BIN/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Minecraft plugin specific ignores
+*.jar
+*.log
+*.yml
+
+# IntelliJ IDEA specific ignores
+.idea/
+*.iml
+out/
+build/
