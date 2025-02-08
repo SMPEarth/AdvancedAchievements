@@ -12,6 +12,7 @@ import javax.inject.Singleton;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Boat;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.util.NumberConversions;
@@ -86,17 +87,19 @@ public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements
 		}
 
 		if (player.isInsideVehicle()) {
-			EntityType vehicleType = player.getVehicle().getType();
-			if (vehicleType == EntityType.HORSE) {
-				updateDistance(difference, player, NormalAchievements.DISTANCEHORSE);
-			} else if (vehicleType == EntityType.PIG) {
-				updateDistance(difference, player, NormalAchievements.DISTANCEPIG);
-			} else if (vehicleType == EntityType.MINECART) {
-				updateDistance(difference, player, NormalAchievements.DISTANCEMINECART);
-			} else if (vehicleType == EntityType.BOAT) {
+			if (player.getVehicle() instanceof Boat) {
 				updateDistance(difference, player, NormalAchievements.DISTANCEBOAT);
-			} else if (vehicleType == EntityType.LLAMA) {
-				updateDistance(difference, player, NormalAchievements.DISTANCELLAMA);
+			} else {
+				EntityType vehicleType = player.getVehicle().getType();
+				if (vehicleType == EntityType.HORSE) {
+					updateDistance(difference, player, NormalAchievements.DISTANCEHORSE);
+				} else if (vehicleType == EntityType.PIG) {
+					updateDistance(difference, player, NormalAchievements.DISTANCEPIG);
+				} else if (vehicleType == EntityType.MINECART) {
+					updateDistance(difference, player, NormalAchievements.DISTANCEMINECART);
+				} else if (vehicleType == EntityType.LLAMA) {
+					updateDistance(difference, player, NormalAchievements.DISTANCELLAMA);
+				}
 			}
 		} else if (player.isGliding()) {
 			updateDistance(difference, player, NormalAchievements.DISTANCEGLIDING);
