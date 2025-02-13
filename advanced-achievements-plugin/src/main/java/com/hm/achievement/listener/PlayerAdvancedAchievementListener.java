@@ -161,10 +161,12 @@ public class PlayerAdvancedAchievementListener implements Listener, Reloadable {
 		langBossBarProgress = langConfig.getString("boss-bar-progress");
 	}
 
-	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
-		// Cancel damage if the firework was launched by the plugin.
-		event.setCancelled(event.getEntity().hasMetadata(ADVANCED_ACHIEVEMENTS_FIREWORK));
+		if (event.getDamager() instanceof Firework
+				&& event.getDamager().hasMetadata(ADVANCED_ACHIEVEMENTS_FIREWORK)) {
+			event.setCancelled(true);
+		}
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
